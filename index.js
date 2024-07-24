@@ -1,10 +1,13 @@
 import express from "express"
 import cors from "cors"
 
+import dotenv from "dotenv"
 const app = express()
 
 app.use(cors())
+dotenv.config()
 app.get("/",(req,res)=>{
+  
                     res.json({ "Vegetarian": [
                                        {
                                          "id": 10,
@@ -246,7 +249,9 @@ app.get("/",(req,res)=>{
                                      ]})
 })
 
-app.listen(3000,()=>{
+
+const Port = process.env.PORT ||1234
+app.listen(Port,()=>{
                  console.log("Server is running")   
 })
 
